@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>数据汇总</title>
+    <link rel="stylesheet" href="../static/plugins/bootstrap-3.4.1/css/bootstrap.min.css">
+    <link rel="icon" href="/static/img/icon.png">
+    <style>
+
+    </style>
+</head>
+<body>
+<div>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"
+                                                  data-toggle="tab">数据汇总</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" style="color: red">用前须知</a></li>
+
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content table-responsive">
+        <div role="tabpanel" class="tab-pane active" id="home">
+            <form action="" method="post" id="myform">
+                <div class="form-group col-sm-2" style="margin-top: 20px">
+                    <select class="form-control" id="condition" name="condition">
+                        <option value="">请选择筛选条件</option>
+                        <option value="topic">选题</option>
+                        <option value="team">队名</option>
+                        <option value="captain">队长姓名</option>
+                        <option value="number">队长学号</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-2" style="margin-top: 20px">
+                    <input type="text" class="form-control" id="search_id" name="data" placeholder="输入查询内容" required="required">
+                </div>
+
+                <div class="col-sm-1" style="margin-top: 20px">
+                    <button type="submit" class="btn btn-primary">查询</button>
+                </div>
+            </form>
+
+            <table class="table table-hover" style="table-layout: fixed;overflow: auto; padding-left: 20px;padding-right: 20px;word-break: break-word">
+                <thead>
+                <tr>
+                    <th >#</th>
+                    <th >队名</th>
+                    <th >选题</th>
+                    <th >队长姓名</th>
+                    <th >队长学号</th>
+                    <th >队长电话</th>
+                    <th >学院</th>
+                    <th >班级</th>
+                    <th >队员1姓名</th>
+                    <th >队员1学号</th>
+                    <th >学院</th>
+                    <th >班级</th>
+                    <th >队员2姓名</th>
+                    <th >队员2学号</th>
+                    <th >学院</th>
+                    <th >班级</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                {% for item in data_list %}
+                <tr>
+
+                    <td>{{ loop.index }}</td>
+                    <td>{{ item.team_name }}</td>
+                    <td>{{ item.topic }}</td>
+                    <td>{{ item.captain }}</td>
+                    <td>{{ item.number }}</td>
+                    <td>{{ item.tel }}</td>
+                    <td>{{ item.academy }}</td>
+                    <td>{{ item.class }}</td>
+                    <td>{{ item.name1 }}</td>
+                    <td>{{ item.number1 }}</td>
+                    <td>{{ item.academy1 }}</td>
+                    <td>{{ item.class1 }}</td>
+                    <td>{{ item.name2}}</td>
+                    <td>{{ item.number2 }}</td>
+                    <td>{{ item.academy2 }}</td>
+                    <td>{{ item.class2 }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+        <div role="tabpanel" class="tab-pane" id="profile">
+            <div>不支持模糊查询！查询的内容要输入完整</div>
+            <div>在使用志愿查询时允许的关键词：科创部、新媒体运营部、组织部、外联部、宣传部，否则会查不到数据</div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="../static/js/jQuery.js"></script>
+<script src="../static/plugins/bootstrap-3.4.1/js/bootstrap.js"></script>
+<script>
+     document.getElementById('myform').addEventListener('submit', function(event) {
+    let select = document.getElementById('condition');
+    if (select.value === "") { // 检查是否选择了那个特定的选项
+        event.preventDefault(); // 阻止表单提交
+        alert('请选择非空的筛选条件！');
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>提交成功</title>
+    <link rel="stylesheet" href="../static/plugins/bootstrap-3.4.1/css/bootstrap.min.css">
+    <link rel="icon" href="/static/img/icon.png">
+    <style>
+        .signup {
+            width: 360px;
+            height: 550px;
+            border: 1px solid #40E0D0;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px #87CEEB;
+
+            margin: 40px auto;
+            padding: 0 24px;
+        }
+
+        .font {
+            text-align: center;
+            font-family: "Microsoft YaHei"
+        }
+    </style>
+</head>
+<body>
+<div class="signup">
+    <div style="text-align: center">
+        <div class="glyphicon glyphicon-check" aria-hidden="true"
+             style="color: greenyellow; text-align: center;font-size: 60px;margin-top: 20px">
+        </div>
+    </div>
+
+
+    <h2 class="font" style="margin-top: 20px">
+        {{word}}
+    </h2>
+
+
+    <div class="font">
+        <img src="/static/img/QQ.jpg" alt="QQ会员群" style="height:250px;width: 250px;margin-top: 10px">
+    </div>
+
+    <div class="font" style="font-size: 18px; color: grey">
+        无协42届会员QQ群
+    </div>
+
+    <div> </div>
+    <div class="font" style="font-size: 15px;margin-top: 18px">
+        请在查询页面查询信息以检查信息是否无误
+    </div>
+
+    <form method="get" action="/guide">
+        <div style="text-align: center; margin-top: 15px">
+            <button type="submit" class="btn btn-primary btn-block">
+                返回导航页
+            </button>
+        </div>
+    </form>
+
+</div>
+</body>
+</html>

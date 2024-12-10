@@ -1,0 +1,82 @@
+/* guide.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #57DCEB, #ffffff);
+    color: #333;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.logo-container {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+    margin-right: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    gap: 20px; /* Add space between cards */
+}
+
+.card {
+    background-color: #ffffff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out;
+    width: 200px;
+    text-align: center;
+    color: #333;
+    border: 1px solid #57DCEB;
+}
+
+.card-header {
+    font-size: 24px;
+    color: #333;
+}
+
+.card-body {
+    font-size: 16px;
+    color: #666;
+}
+
+.card i {
+    margin-right: 10px;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    cursor: pointer;
+    border-color: #333;
+}
+

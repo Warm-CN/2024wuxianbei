@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024无线杯导航</title>
+    <link rel="stylesheet" href="/static/plugins/guide.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="/static/plugins/font-awesome.min.css">
+    <link rel="icon" href="/static/img/icon.png">
+</head>
+<body>
+<header>
+    <div class="logo-container">
+        <img src="/static/img/icon.png" alt="无线杯导航Logo" class="logo">
+        <h1>无线杯导航</h1>
+    </div>
+</header>
+<div class="container" style="margin-bottom: 20px">
+    <div class="card" id="signup">
+        <div class="card-header">
+            <i class="fas fa-user-plus"></i>
+            报名入口
+        </div>
+        <div class="card-body">
+            点击这里进行报名
+        </div>
+    </div>
+    <div class="card" id="query">
+        <div class="card-header">
+            <i class="fas fa-search"></i>
+            查询队伍信息
+        </div>
+        <div class="card-body">
+            点击这里查询队伍信息
+        </div>
+    </div>
+    <div class="card" id="select-topic">
+        <div class="card-header">
+            <i class="fas fa-list-ul"></i>
+            选题
+        </div>
+        <div class="card-body">
+            点击这里进行选题
+        </div>
+    </div>
+    <div class="card" id="query-acceptance">
+        <div class="card-header">
+            <i class="fas fa-check-circle"></i>
+            查询验收信息
+        </div>
+        <div class="card-body">
+            点击这里查询验收信息
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    // script.js
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', function () {
+            const id = this.id;
+            if (id === 'signup') {
+                window.location.href = '/guide/signup'; // 跳转到报名页面
+            } else if (id === 'query') {
+                window.location.href = '/guide/query'; // 跳转到查询信息页面
+            } else if (id === 'select-topic') {
+                window.location.href = '/guide/select-topic'; // 跳转到选题页面
+            } else if (id === 'query-acceptance') {
+                window.location.href = '/guide/query-acceptance'; // 跳转到查询验收信息页面
+            }
+        });
+    });
+</script>
+</body>
+</html>

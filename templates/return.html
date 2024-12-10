@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>返回页面</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="/static/plugins/bootstrap-3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(150deg, #8CF2EB, #B9F4A3);
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            padding-top: 100px;
+        }
+
+        .container {
+
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            animation: fadeIn 2s;
+            width: 360px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        h1, h2, h3 {
+            color: #3b5bdb;
+        }
+
+        .team-info {
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .team-info:last-child {
+            border-bottom: none;
+        }
+
+        .team-info p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .team-info strong {
+            color: #f44336;
+        }
+
+        .btn-primary {
+            background-color: #3b5bdb;
+            border-color: #3b5bdb;
+        }
+
+        .btn-primary:hover {
+            background-color: #303f9f;
+            border-color: #303f9f;
+        }
+
+        /* 添加一些装饰元素 */
+        .stars {
+            width: 100%;
+            height: 100%;
+            background: url('https://cdn.pixabay.com/photo/2012/04/14/15/41/stars-12559_960_720.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="stars"></div>
+<div class="container">
+    <h1 class="text-center mb-4">队伍信息</h1>
+    <!-- 队名 -->
+    <div class="team-info">
+        <h2 id="teamName">{{row['team_name']}}</h2>
+    </div>
+
+    <!-- 队长信息 -->
+    <div class="team-info">
+        <h3>队长信息</h3>
+        <p><strong>姓名：</strong><span id="captainName">{{row['captain']}}</span></p>
+        <p><strong>学号：</strong><span id="captainStudentId">{{row['number']}}</span></p>
+        <div id="conditionalContent3" style="display: none;">
+            <p><strong>手机：</strong><span id="captainPhone">{{row['tel']}}</span></p>
+        </div>
+
+        <div id="conditionalContent2" style="display: none;">
+            <p><strong>学院：</strong><span id="academy">{{row['academy']}}</span></p>
+            <p><strong>专业班级：</strong><span id="class">{{row['class']}}</span></p>
+        </div>
+
+    </div>
+
+    <!-- 队员1信息 -->
+    <div class="team-info">
+        <h3>{{word_list[0]}}</h3>
+        <p><strong>{{word_list[2]}}：</strong><span id="member1Name">{{row['name1']}}</span></p>
+        <p><strong>{{word_list[3]}}：</strong><span id="member1StudentId">{{row['number1']}}</span></p>
+        <div id="conditionalContent" style="display: none;">
+            <p><strong>学院：</strong><span id="academy1">{{row['academy1']}}</span></p>
+            <p><strong>专业班级：</strong><span id="class1">{{row['class1']}}</span></p>
+        </div>
+    </div>
+
+    <!-- 队员2信息 -->
+    <div class="team-info">
+        <h3>{{word_list[1]}}</h3>
+        <p><strong>{{word_list[2]}}：</strong><span id="member2Name">{{row['name2']}}</span></p>
+        <p><strong>{{word_list[3]}}：</strong><span id="member2StudentId">{{row['number2']}}</span></p>
+        <div id="conditionalContent1" style="display: none;">
+            <p><strong>学院：</strong><span id="academy2">{{row['academy2']}}</span></p>
+            <p><strong>专业班级：</strong><span id="class2">{{row['class2']}}</span></p>
+        </div>
+    </div>
+
+    <!-- 选题 -->
+    <div class="team-info">
+        <h3>选题</h3>
+        <p><span id="topic">{{row['topic']}}</span></p>
+    </div>
+
+    <!-- 返回按钮 -->
+    <button type="button" class="btn btn-primary" onclick="window.history.back()">返回</button>
+    <span style="display: none" id="flagSpan">{{flag}}</span>
+</div>
+
+<!-- 引入Bootstrap JS -->
+<script src="/static/plugins/bootstrap-3.4.1/js/bootstrap.js"></script>
+<script type="text/javascript">
+
+
+
+    // 这个函数将在页面加载完成后执行
+    document.addEventListener('DOMContentLoaded', function () {
+        // 检查span标签的值是否等于特定值
+        checkAndModifySpan();
+        conditionContent();
+    });
+
+    function checkAndModifySpan() {
+        // 获取span元素
+        var spanElement = document.getElementById('topic');
+
+        // 检查span的文本内容是否等于特定值
+        if (spanElement.innerText === 'A题') {
+            // 如果等于，修改为指定的新值
+            spanElement.innerText = 'A题：';
+        }
+        if (spanElement.innerText === 'B题') {
+            // 如果等于，修改为指定的新值
+            spanElement.innerText = 'B题：';
+        }
+    }
+
+    function conditionContent() {
+        // 使用getElementById来获取span元素
+        var spanElement = document.getElementById('flagSpan');
+
+        // 检查元素是否存在
+        if (spanElement) {
+            // 获取span元素的内容
+            var flagValue = spanElement.textContent || spanElement.innerText;
+            if (flagValue === "1") {
+                document.getElementById('conditionalContent').style.display = 'block';
+                document.getElementById('conditionalContent1').style.display = 'block';
+                document.getElementById('conditionalContent2').style.display = 'block';
+                document.getElementById('conditionalContent3').style.display = 'block';
+            }
+        }
+    }
+</script>
+</body>
+</html>
