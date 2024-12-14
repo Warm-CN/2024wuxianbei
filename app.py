@@ -5,12 +5,28 @@ app = Flask(__name__)
 
 
 @app.route('/guide')
+# 显示报名指南页面
 def guide():
+    """
+           Render the guide page for the competition registration website.
+    """
     return render_template("guide.html")
 
 
 @app.route('/guide/signup', methods=['GET', 'POST'])
+# 处理队伍报名请求
 def signup():
+    """
+        Handles team registration by accepting team details through a POST request
+        and saving them to the database. If the team number already exists, updates
+        the existing record; otherwise, creates a new record.
+
+        Args:
+            None (Flask handles the request object internally)
+
+        Returns:
+            A rendered template with a success message or error handling.
+        """
     if request.method == 'GET':
         return render_template("signup.html")
     if request.method == 'POST':
@@ -61,7 +77,17 @@ def signup():
 
 
 @app.route('/guide/query', methods=['GET', 'POST'])
+# 查询队伍信息
 def query():
+    """
+       Allows users to query team information by team number.
+
+       Args:
+           None (Flask handles the request object internally)
+
+       Returns:
+           A rendered template displaying the queried team information.
+       """
     if request.method == 'GET':
         return render_template("query.html")
     if request.method == 'POST':
@@ -87,7 +113,17 @@ def query():
 
 
 @app.route('/guide/query-acceptance', methods=['GET', 'POST'])
+# 查询验收信息
 def query_acceptance():
+    """
+       Allows users to query acceptance information by team number.
+
+       Args:
+           None (Flask handles the request object internally)
+
+       Returns:
+           A rendered template displaying the queried acceptance information.
+       """
     if request.method == 'GET':
         return render_template("query-acceptance.html")
     if request.method == 'POST':
@@ -110,7 +146,17 @@ def query_acceptance():
 
 
 @app.route('/guide/select-topic', methods=['GET', 'POST'])
+# 选题功能
 def select_topic():
+    """
+        Allows teams to select a topic for the competition.
+
+        Args:
+            None (Flask handles the request object internally)
+
+        Returns:
+            A rendered template with a success message or error handling.
+        """
     if request.method == "GET":
         return render_template("select-topic.html")
     if request.method == "POST":
@@ -143,7 +189,17 @@ def select_topic():
 
 
 @app.route('//form', methods=['GET', 'POST'])
+# 后台管理功能
 def form():
+    """
+        Provides an admin interface to manage team information based on different conditions.
+
+        Args:
+            None (Flask handles the request object internally)
+
+        Returns:
+            A rendered template displaying the team information based on the admin's query.
+        """
     if request.method == 'GET':
         # ########## 从数据库获取所有用户信息 ###########
         # 1.连接MySQL
@@ -211,4 +267,4 @@ def form():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
