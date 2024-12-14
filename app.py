@@ -125,17 +125,13 @@ def select_topic():
         cursor.execute("select * from team where number = %s", [number, ])
         keys = cursor.fetchall()
 
-        flag = keys[0]['topic']
-
-        if keys and flag != "B题":
+        if keys:
             # 查找到数据发送修改数据指令
             cursor.execute(
                 "update team set  topic = %s where number = %s",
                 [topic, number, ])
             conn.commit()
             word = "选题成功！"
-        elif flag == "B题":
-            word = "无法修改选题！"
         else:
             word = "无信息！请先报名"
 
