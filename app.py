@@ -31,7 +31,7 @@ def signup():
         return render_template("signup.html")
     if request.method == 'POST':
         # 1.连接MySQL
-        conn = pymysql.connect(host="127.0.0.1", port=3306, user='root', passwd="", charset='utf8', db='')
+        conn = pymysql.connect(host="127.0.0.1", port=3306, user='root', passwd="0000", charset='utf8', db='RFA')
         cursor = conn.cursor(cursor=pymysql.cursors.DictCursor)
 
         team_name = request.form.get('team_name')
@@ -94,7 +94,7 @@ def query():
         number = request.form.get('number')
 
         # 1.连接MySQL
-        conn = pymysql.connect(host="127.0.0.1", port=3306, user='root', passwd="", charset='utf8', db='')
+        conn = pymysql.connect(host="127.0.0.1", port=3306, user='root', passwd="0000", charset='utf8', db='RFA')
         cursor = conn.cursor(cursor=pymysql.cursors.DictCursor)
 
         # 2.发送查询指令
@@ -130,7 +130,7 @@ def query_acceptance():
         number = request.form.get('number')
 
         # 1.连接MySQL
-        conn = pymysql.connect(host="127.0.0.1", port=3306, user='root', passwd="", charset='utf8', db='')
+        conn = pymysql.connect(host="127.0.0.1", port=3306, user='root', passwd="0000", charset='utf8', db='RFA')
         cursor = conn.cursor(cursor=pymysql.cursors.DictCursor)
 
         # 2.查询信息
@@ -161,7 +161,7 @@ def select_topic():
         return render_template("select-topic.html")
     if request.method == "POST":
         # 1.连接MySQL
-        conn = pymysql.connect(host="127.0.0.1", port=3306, user='root', passwd="", charset='utf8', db='')
+        conn = pymysql.connect(host="127.0.0.1", port=3306, user='root', passwd="0000", charset='utf8', db='RFA')
         cursor = conn.cursor(cursor=pymysql.cursors.DictCursor)
 
         topic = request.form.get('topic')
@@ -203,7 +203,7 @@ def form():
     if request.method == 'GET':
         # ########## 从数据库获取所有用户信息 ###########
         # 1.连接MySQL
-        conn = pymysql.connect(host="127.0.0.1", port=3306, user='root', passwd="", charset='utf8', db='')
+        conn = pymysql.connect(host="127.0.0.1", port=3306, user='root', passwd="0000", charset='utf8', db='RFA')
         cursor = conn.cursor(cursor=pymysql.cursors.DictCursor)
 
         # 2.发送指令
@@ -218,7 +218,7 @@ def form():
         return render_template('form.html', data_list=data_list)
     if request.method == 'POST':
         # 1.连接MySQL
-        conn = pymysql.connect(host="127.0.0.1", port=3306, user='root', passwd="", charset='utf8', db='')
+        conn = pymysql.connect(host="127.0.0.1", port=3306, user='root', passwd="0000", charset='utf8', db='RFA')
         cursor = conn.cursor(cursor=pymysql.cursors.DictCursor)
 
         # 2.获取输入内容
