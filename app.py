@@ -49,8 +49,7 @@ def signup():
         academy2 = request.form.get('academy2')
         class2 = request.form.get('class2')
 
-        print(team_name, captain_name, number, tel, academy, my_class, teammate1_name, teammate1_number, academy1,
-              class1, teammate2_name, teammate2_number, academy2, class2)
+
         # 2.发送查询指令
         cursor.execute("select * from team where number = %s", [number, ])
         keys = cursor.fetchall()
