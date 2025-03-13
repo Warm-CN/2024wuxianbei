@@ -140,7 +140,7 @@ def query_acceptance():
         cursor.close()
         conn.close()
 
-        word_list = ["热身赛", "正赛", "时间", "地点"]
+        word_list = ["一次验收", "二次验收", "时间", "地点"]
         return render_template("return.html", word_list=word_list, row=row)
 
 
